@@ -36,6 +36,8 @@ Vagrant.configure("2") do |config|
 		puppet.options = "--debug --verbose"
 	end
 
+	config.vm.provision :shell, :inline => "cd /vagrant && /vagrant/bin/phpbuild.py"
+
 	# Enable provisioning with chef solo, specifying a cookbooks path, roles
 	# path, and data_bags path (all relative to this Vagrantfile), and adding
 	# some recipes and/or roles.
