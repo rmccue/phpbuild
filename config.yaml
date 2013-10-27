@@ -1,0 +1,14 @@
+---
+basedir: "~/example"
+builds:
+  # Build PHP + cURL + OpenSSL for a known broken configuration
+  foorelease:
+    php: 5.4.2
+    curl: 7.31.0
+    openssl: 0.9.8q
+
+  #anotherrelease:
+    #php: 5.5.0
+
+    # Remove libxml from this build
+    #libxml: ~

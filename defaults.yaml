@@ -1,0 +1,4 @@
+iconv: '^libiconv-([\d.]+)$'
+icu: '^icu-([\d.]+)$'
+libxml: '^libxml-([\d.]+)$'
+mcrypt: '^libmcrypt-([\d.]+)$'

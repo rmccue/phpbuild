@@ -1,0 +1,32 @@
+php:
+    type: git
+    url: https://github.com/php/php-src
+    patterns:
+        - [ '^', 'php-' ]
+
+curl:
+    type: git
+    url: https://github.com/bagder/curl.git
+    patterns:
+        - [ '\.', _ ]
+        - [ '^', 'curl-' ]
+
+    configure: 
+        - "./buildconf"
+        - "./configure --prefix={0}"
+    build: "make"
+
+    after:
+        - openssl
+
+openssl:
+    type: git
+    url: https://github.com/openssl/openssl.git
+
+    default: '^openssl-([\d.]+[a-z]?)$'
+    patterns:
+        - [ '\.', _ ]
+        - [ '^', 'OpenSSL_' ]
+
+    configure: "./config --prefix={0}"
+    build: "make"
