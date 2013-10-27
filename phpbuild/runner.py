@@ -6,8 +6,8 @@ import shlex
 import pipes
 import subprocess
 
-import buildtool.fetcher
-import buildtool.builder
+import phpbuild.fetcher
+import phpbuild.builder
 
 class InstallError(Exception):
 	pass
@@ -57,7 +57,7 @@ class Installer(object):
 
 		# Work out how to fetch it
 		try:
-			fetcher = buildtool.fetcher.map(extension, self.fetchable)
+			fetcher = phpbuild.fetcher.map(extension, self.fetchable)
 		except ImportError:
 			# Report this
 			print("Fetcher not found for {0}".format(extension))
@@ -67,7 +67,7 @@ class Installer(object):
 		try:
 			print("    Downloading source for {0}".format(extension))
 			fetcher.fetch(path, version)
-		except buildtool.fetcher.FetchError as e:
+		except phpbuild.fetcher.FetchError as e:
 			# Report this too
 			print("Error fetching {0}: {1}".format(extension, e.message))
 			return False
@@ -132,7 +132,7 @@ class Installer(object):
 					continue
 
 				print("    Starting {0}".format(extension))
-				buildtool.builder.build(config, path, self.builddir)
+				phpbuild.builder.build(config, path, self.builddir)
 
 				# Mark as complete
 				completed.append(extension)
