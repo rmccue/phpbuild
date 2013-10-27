@@ -1,3 +1,21 @@
+# Extension version information follows the following format:
+#
+# extensionname:
+#   type: git
+#   url: URL to git repository (https preferred)
+#   patterns: Regular expressions to convert a version to a tag
+#       - [ regex-search-pattern, replacement ]
+#
+#   configure: List (or string) of configure commands to run
+#   build: List (or string) of build commands to run
+#
+#   deps: Extensions to require for this extension
+#   after: Extensions to install after (if they're enabled, otherwise this is ignored)
+#
+# NOTE: php has special handling, as the configure and build lines are generated
+# automatically.
+# TODO: move more of that into here
+
 php:
     type: git
     url: https://github.com/php/php-src
