@@ -4,10 +4,10 @@ import sys
 import os.path
 
 try:
-	from buildtool import runner
+	from phpbuild import runner
 except ImportError:
 	sys.path.append(os.path.abspath("."))
-	from buildtool import runner
+	from phpbuild import runner
 
 if __name__ == '__main__':
 	runner.run()
